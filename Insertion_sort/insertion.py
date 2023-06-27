@@ -4,25 +4,24 @@ array into a "sorted" and an "unsorted" region.
 It iteratively takes elements from the unsorted region and
 inserts them into their correct position in the sorted region."""
 
+# Kind of similar to the bubble SOrt, Insertion does have a better Time Complexity
 def insertion_sort(arr):
-    n = len(arr)
+    j = len(arr)
 
-    """Outer loop loops through the List"""
-    for i in range(1, n):
-        element = arr[i] #Stands for the element that will iteratively be sorted
-        last_element = i -1 #element before the current element
+    """Do a for loop for the ELements inside"""
+    for i in range(1, j):
+        crr_elem = arr[i] #The unsorted element that needs sorting
+        last_index = i - 1 # The Element Before
 
-        while last_element >= 0 and arr[last_element] > element:
-            arr[last_element + 1] = arr[last_element]
-            last_element -= 1
+        while last_index >= 0 and arr[last_index] > crr_elem:
+            arr[last_index + 1] = arr[last_index]
+            last_index -= 1
+
+        arr[last_index + 1] = crr_elem
 
     return arr
 
+arry = [19, 48, 99, 71, 13, 52, 96, 73, 86, 7]
+insertion_sort(arry)
 
-array = [19, 48, 99, 71, 13, 52, 96, 73, 86, 7]
-
-insertion_sort(array)
-
-print(array)
-
-
+print(arry)
