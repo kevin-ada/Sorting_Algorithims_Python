@@ -1,24 +1,27 @@
 # Implementation of a bubble sort
+# Write a function that sorts an array of integers in ascending order using the Bubble sort algorithm
+#
+# You’re expected to print the array after each time you swap two element
 
-def bubble_sort(arr):
-    arr_len = len(arr)
+def bubble_sort(array_to_be_sorted):
+    """Get The Length Of the Array"""
+    n = len(array_to_be_sorted)
 
-    for i in range(arr_len - 1):
+    """Loop Through The Elements in the Array"""
+    for i in range(n- 1):
+        swapped = False
 
-        swapped = True
+        """Get The next Element since The last indexed to be looped has been sorted"""
+        for j in range(n - i - 1):
+            if array_to_be_sorted[j] > array_to_be_sorted[j + 1]:
+                array_to_be_sorted[j], array_to_be_sorted[j + 1] = array_to_be_sorted[j + 1], array_to_be_sorted[j]
+                swapped =  True
 
         if not swapped:
             break
 
 
-        for j in range(arr_len - i - 1):
-
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                swapped = True
-
-
-arr = [1,2,3,4,5,5,6,7,8,9,0,0,20,30,40,50,60]
+arr = [19, 48, 71, 99, 13, 52, 96, 73, 86, 7]
 
 bubble_sort(arr)
 
